@@ -5,10 +5,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = TextStyle(
-      color: Colors.white,
-      fontSize: 30.0,
-    );
+    
 
     return Scaffold(
       body: Container(
@@ -17,27 +14,11 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'asset/image/logo.png',
-            ),
+            _Logo(),
             SizedBox(
               height: 30.0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'VIDEO',
-                  style: textStyle,
-                ),
-                Text(
-                  'PLAYER',
-                  style: textStyle.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            )
+            _AppName(),
           ],
         ),
       ),
@@ -57,4 +38,43 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
     }
+}
+
+class _Logo extends StatelessWidget {
+  const _Logo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+              'asset/image/logo.png',
+            );
+  }
+}
+
+class _AppName extends StatelessWidget {
+  const _AppName({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final textStyle = TextStyle(
+      color: Colors.white,
+      fontSize: 30.0,
+    );
+
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'VIDEO',
+                  style: textStyle,
+                ),
+                Text(
+                  'PLAYER',
+                  style: textStyle.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            );
+  }
 }
